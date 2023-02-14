@@ -1,0 +1,15 @@
+nav, #listMenu a {
+    font-size: small;
+}
+nav a:hover {
+    text-decoration:underline;
+}
+header img {
+    height: 20rem;
+}
+#NosService div a, #cardspecial div a{
+    color: #950c17;
+}
+footer {
+    font-size: small;
+}

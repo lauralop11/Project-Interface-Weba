@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <title>La vie en roses</title>
+    <meta name="author" content="Laura Lopez" />
+    <meta charset="utf-8" />
+    <!--Détection de la taille d'affichage-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!--CSS-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--CSS Bootstrap 5.2-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="decoration" onscroll="fonctionScroll()" onload="qtePanier()">
+    <!-- CONTENU DE LA PAGE -->
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-md bg-white shadow-sm container-fluid p-2">
+      <div class="container-lg text-muted">
+        <!-- logo -->
+        <div class="d-flex">
+          <span id="logo" class="navbar-brand text-muted">
+            <img
+              src="img/flower-156608.svg"
+              alt="rose rouge"
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            La vie en roses
+          </span>
+        </div>
+        <!-- bouton collapse -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- contenu de navegation -->
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index.html">Accueil </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index.html#promotion">Promotions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index.html#contact">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-dark"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Nos services
+              </a>
+              <ul id="listMenu" class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="produits1.html#fleuriste">Fleuriste</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#decoration"
+                    >Service de decoration</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- pannier-->
+        <a href="panier.html#panier" class="nav-item btn fa-solid fa-cart-shopping fs-5text-dark position-relative text-decoration-none">
+            <span id="qteAchete"  class="top-0 start-100 translate-middle badge rounded-pill bg-danger position-absolute">
+            </span>
+        </a>
+      </div>
+    </nav>
+    <!-- Contenu -->
+    <main>
+        <!-- Decoration -->
+      
+      <form id="formDeco" class="container mt-4">
+         <!-- Section Buquet -->
+        <div id="Bouquet" class="row border border-1 py-4">
+          <div class="col">
+            <h1>Bouquet de mariage</h1>
+            <p>Belle bouquet avec les plus belles roses du la session.</p>
+            <img src="img/card3carrousel.jpeg" alt="Bouquet roses" class="img-thumbnail" >
+          </div>
+          <div class="col mt-auto">
+              <!-- Quantite -->
+              <h4 id="prixBouquet">$120</h4>
+              <div>
+                <label class="form-label" for="qteBouquet">Quantité : </label>
+                <input class="form-control mb-3 rounded-0 w-25" type="number" id="qteBouquet" name="qteBouquetMariage" min="0" max="10">
+              </div>
+             <!-- Taille -->
+             <select id="tailleBouquet" class="form-select rounded-0 w-50" aria-label="Default select example">
+              <option selected>Choisir la taille</option>
+              <option value="standard">Standard</option>
+              <option value="superieur">Superieur + 30$</option>
+              <option value="deluxe">Deluxe + 40$</option>
+             </select>
+            <!-- Complementaires -->
+            <h5 class="pt-4 ">Produits complementaires</h5>
+            <div class="form-check">  
+              <input class="form-check-input" type="radio" value="tissu" id="tissu" name="complementBouquet">
+              <label class="form-check-label" for="tissu">
+                Tissu
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="perle" id="perle" name="complementBouquet" checked>
+              <label class="form-check-label" for="perle">
+                Perles
+              </label>
+            </div>
+            <!-- Bouton ajouter au panier -->
+            <button class="btn btn-dark rounded-0 mt-3" onclick="ajouterFactureDecoration()">Ajouter au panier</button>
+          </div>
+        </div>
+
+         <!-- Section Exterieur -->
+        <div id="Exterieur" class="d-flex row mt-5 border border-1 py-4">
+          <div class="col">
+            <h1>Decoration d'exterieur</h1>
+            <p>Belle decoration exterieur avec les plus belles fleurs de la session.</p>
+            <img src="img/pexels-photo-169193.webp" alt="Decoration exterieur avec fleurs" class="img-thumbnail">
+          </div>
+          <div class="col mt-auto">
+              <!-- Quantite -->
+              <h4 id="prixExterieur">$900 </h4>
+              <p class="text-secondary">*Depuis</p>
+              <div>
+                <label class="form-label" for="qteExt">Quantité : </label>
+                <input class="form-control mb-3 rounded-0 w-25" type="number" id="qteExt" name="qteExt" min="0" max="10">
+              </div>
+            <!-- Complementaires -->
+            <h5 class="pt-4 ">Produits complementaires</h5>
+            <div class="form-check">  
+              <input class="form-check-input" type="radio" value="jardinerie" id="jardineriedeco" name="complementExt">
+              <label class="form-check-label" for="jardinerie">
+                Jardinerie
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="table" id="tabledeco" name="complementExt" checked>
+              <label class="form-check-label" for="table">
+                Table
+              </label>
+            </div>
+            <!-- Bouton ajouter au panier -->
+            <button class="btn btn-dark rounded-0 mt-3" onclick="ajouterFactureDecoration()">Ajouter au panier</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Reseau social -->
+      <div class="d-flex justify-content-start m-5">
+        <div class="d-none d-lg-block">
+          <span class="text-dark"
+            >Nous rencontrer sur notre reseau social:</span
+          >
+        </div>
+        <div>
+          <span class="mx-4 text-dark fa-brands fa-facebook"></span>
+          <span class="mx-4 text-dark fa-brands fa-twitter"></span>
+          <span class="mx-4 text-dark fa-brands fa-instagram"></span>
+        </div>
+      </div>
+  
+        <!-- bouton retourn haut -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end sticky-bottom mb-3">
+          <a href="#top" id="to_top_arrow" class="btn btn-outline-light btn-secondary me-md-2 rounded-0 text-dark text-decoration-none">
+              ↑ Retour en haut de la page
+          </a>  
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-lg-start text-muted mt-3 container-fluid">
+      <div class="text-center text-md-start pt-3 bg-light">
+        <div class="row mt-3">
+          <!-- column produits -->
+          <div class="col-md-3 col-lg-4">
+            <h6 class="fw-bold mb-4">Produits</h6>
+            <p class="text-reset">Cartes-cadeaux</p>
+            <p class="text-reset">Carrieres</p>
+            <p class="text-reset">Confidentialité</p>
+          </div>
+          <!-- column parametres -->
+          <div class="col-md-4">
+            <h6 class="fw-bold mb-4">Paramètres</h6>
+            <p class="text-reset">Conditions d'utilisation</p>
+            <p class="text-reset">Se désincrire</p>
+          </div>
+          <!-- column contact -->
+          <div class="col-md-5 col-lg-4">
+            <h6 class="fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home"></i> 120 rue du Verger,Levis, Qc.</p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              lavieroses@gmail.ca
+            </p>
+            <p><i class="fas fa-phone"></i> (567) 456-8970</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--Scripts-->
+    <script src="script/scroll.js"></script>
+    <script src="script/conserver.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d6973d5988.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
